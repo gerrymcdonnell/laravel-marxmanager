@@ -25,6 +25,7 @@ Route::resource('todo','TodosController');*/
 Auth::routes();
 
 Route::get('/home', 'BookmarksController@index');
+Route::get('/dashboard', 'BookmarksController@index');
 
 Route::post('store', ['as'=>'bookmarks.store','uses'=>'BookmarksController@store']);
 

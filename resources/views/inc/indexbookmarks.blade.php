@@ -29,6 +29,12 @@
                                 {{$bookmark->url}}
                             </a>
 
+                            <br>
+
+                            <button type="button" class="btn btn-danger">delete
+                            <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+
                             </li>
                         @endforeach
                         </ul>

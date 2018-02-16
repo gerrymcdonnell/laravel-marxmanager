@@ -19,7 +19,7 @@ class BookmarksController extends Controller
      */
     public function index()
     {
-        $bookmarks=Bookmark::orderBy('created_at','desc')->get();
+        $bookmarks=Bookmark::where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
 
         return view('home')->with('bookmarks',$bookmarks);
     }
