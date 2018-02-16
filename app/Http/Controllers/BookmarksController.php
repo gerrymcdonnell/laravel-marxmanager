@@ -19,6 +19,9 @@ class BookmarksController extends Controller
      */
     public function index()
     {
+        /*$bookmarks=Bookmark::orderBy('created_at','desc')->get();
+        return view('bookmarks.index')->with('bookmarks',$bookmarks);*/
+
         return view('home');
     }
 
@@ -48,6 +51,64 @@ class BookmarksController extends Controller
         //flash message and redirect
         return redirect('/dashboard')
             ->with('success','Saved Listing');
+    }
+
+
+    public function show($id)
+    {
+        //get the record
+        $bookmark=Listing::find($id);
+        //return the view and pass in the todo variable
+        return view('bookmarks.show')
+            ->with('bookmark',$bookmark);
+    }
+
+
+    public function destroy($id)
+    {
+        $bookmark=Bookmark::find($id);
+        $bookmark->delete();
+
+        //flash message and redirect
+        return redirect('/dashboard')
+            ->with('success','Listing deleted');
+    }
+
+
+
+
+    //show the edit form
+    public function edit($id)
+    {
+        $bookmark=Bookmark::find($id);
+        return view('listings.edit')
+            ->with('listing',$bookmark);
+    }
+
+
+
+    //update the data from the edit form
+    public function update(Request $request, $id)
+    {
+        //validation
+        $this->validate($request,[
+            'name'=>'required',
+            'url'=>'required'
+        ]);
+
+        $bookmark=Bookmark::find($id);
+        //get the input
+        $bookmark->name=$request->input('name');
+        $bookmark->url=$request->input('url');
+
+        $bookmark->user_id=auth()->user()->id;
+
+        //save it
+        $bookmark->save();
+
+        //flash message and redirect
+        return redirect('/dashboard')
+            ->with('success','Updated Listing');
     }
 
 

@@ -14,9 +14,10 @@
                         </div>
                     @endif
 
-                    <div class="">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">add</button>
-                    </div>
+                    @include('inc.messages')
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Bookmark</button>
+
 
                 </div>
             </div>
@@ -27,6 +28,7 @@
 
 
 
+<!--modal -->
 <div class="modal" tabindex="-1" role="dialog" id="addModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -36,6 +38,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+
 
       <div class="modal-body">
         <p>Modal body text goes here.</p>
@@ -53,10 +57,11 @@
       </div>
 
 
-      <div class="modal-footer">
+{{--      <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+      </div>--}}
+
     </div>
   </div>
 </div>
