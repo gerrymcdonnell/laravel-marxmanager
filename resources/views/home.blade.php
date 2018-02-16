@@ -36,9 +36,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <p>Modal body text goes here.</p>
+
+        {!! Form::open(['action' => 'BookmarksController@store','method'=>'post']) !!}
+
+        {{Form::bsText('name','',[])}}
+        {{Form::bsText('url','',[])}}
+        {{Form::bsTextArea('description','',[])}}
+
+        {{Form::bsSubmit('submit me',['class'=>'btn btn-primary'])}}
+
+        {!! Form::close() !!}
+
       </div>
+
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

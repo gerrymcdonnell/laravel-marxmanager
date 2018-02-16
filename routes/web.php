@@ -26,4 +26,5 @@ Auth::routes();
 
 Route::get('/home', 'BookmarksController@index');
 
+Route::post('store', ['as'=>'bookmarks.store','uses'=>'BookmarksController@store']);
 
