@@ -30,8 +30,9 @@
                             </a>
 
                             <br>
-
-                            <button type="button" class="btn btn-danger">delete
+                            <!--send bookmark id -->
+                            <button data-id="{{$bookmark->id}}" type="button" class="delete-bookmark btn btn-danger">delete
+                            <!--icons not working -->
                             <span class="glyphicon glyphicon-remove"></span>
                             </button>
 

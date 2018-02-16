@@ -69,8 +69,8 @@ class BookmarksController extends Controller
         $bookmark->delete();
 
         //flash message and redirect
-        return redirect('/dashboard')
-            ->with('success','Listing deleted');
+        /*return redirect('/dashboard')
+            ->with('success','Listing deleted');*/
     }
 
 
