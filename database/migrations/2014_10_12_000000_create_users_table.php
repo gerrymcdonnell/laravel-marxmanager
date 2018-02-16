@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             //$table->integer('is_active')->default(0);
 			
             $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
@@ -40,31 +41,12 @@ class CreateUsersTable extends Migration
         $rows = [
             [
                 'name' => 'admin',
+                'username' => 'admin',
                 'email' => 'admin@app.com',
                 'password' =>  bcrypt('pass'),
-                //'role_id'=>1,
-                //'is_active'=>1,
                 'created_at'=>date('Y-m-d G:i:s'),
                 'updated_at'=>date('Y-m-d G:i:s')
-            ]/*,
-            [
-                'name' => 'author',
-                'email' => 'author@app.com',
-                'password' =>  bcrypt('pass'),
-                'role_id'=>2,
-                'is_active'=>1,
-                'created_at'=>date('Y-m-d G:i:s'),
-                'updated_at'=>date('Y-m-d G:i:s')
-            ],
-            [
-                'name' => 'subscriber',
-                'email' => 'subscriber@app.com',
-                'password' =>  bcrypt('pass'),
-                'role_id'=>3,
-                'is_active'=>1,
-                'created_at'=>date('Y-m-d G:i:s'),
-                'updated_at'=>date('Y-m-d G:i:s')
-            ]*/
+            ]
         ];
         // insert records
         DB::table('users')->insert($rows);
