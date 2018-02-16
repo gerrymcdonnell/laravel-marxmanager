@@ -20,11 +20,12 @@
 
                     <ul class="list-group-item"> name: {{$bookmark->name}}</ul>
 
-                    <ul class="list-group-item"> urle: {{$bookmark->url}}</ul>
+                    <ul class="list-group-item"> url: {{$bookmark->url}}</ul>
+
 
 
                     <hr>
-                    Bio:
+                    Description:
                     <div class="well">
                         {{$bookmark->description}}
                     </div>

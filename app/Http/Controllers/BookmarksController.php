@@ -19,10 +19,9 @@ class BookmarksController extends Controller
      */
     public function index()
     {
-        /*$bookmarks=Bookmark::orderBy('created_at','desc')->get();
-        return view('bookmarks.index')->with('bookmarks',$bookmarks);*/
+        $bookmarks=Bookmark::orderBy('created_at','desc')->get();
 
-        return view('home');
+        return view('home')->with('bookmarks',$bookmarks);
     }
 
 
@@ -49,7 +48,7 @@ class BookmarksController extends Controller
         $bookmark->save();
 
         //flash message and redirect
-        return redirect('/dashboard')
+        return redirect('/home')
             ->with('success','Saved Listing');
     }
 
@@ -57,7 +56,7 @@ class BookmarksController extends Controller
     public function show($id)
     {
         //get the record
-        $bookmark=Listing::find($id);
+        $bookmark=Bookmark::find($id);
         //return the view and pass in the todo variable
         return view('bookmarks.show')
             ->with('bookmark',$bookmark);

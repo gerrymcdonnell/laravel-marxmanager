@@ -16,6 +16,8 @@
 
                     @include('inc.messages')
 
+                    @include('inc.indexbookmarks')
+
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Bookmark</button>
 
 
